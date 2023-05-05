@@ -31,10 +31,17 @@ public class MybatisQuery {
     }
 
     @Test
-    public void findQuery(){
+    public void findQuery1(){
         SqlSession sqlSession = sessionFactory.openSession();
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
-        List<Emp> empList=mapper.findByQuery("田",18);
-
+        List<Emp> empList=mapper.findByQuery1("田",18);
+        empList.stream().forEach(System.out::println);
+    }
+    @Test
+    public void findQuery2(){
+        SqlSession sqlSession = sessionFactory.openSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        List<Emp> empList=mapper.findByQuery2("田",18);
+        empList.stream().forEach(System.out::println);
     }
 }

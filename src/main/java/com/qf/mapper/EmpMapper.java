@@ -1,8 +1,10 @@
 package com.qf.mapper;
 
 import com.qf.pojo.Emp;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 74161
@@ -21,5 +23,11 @@ public interface EmpMapper {
 
     void update(Emp emp);
 
-    List<Emp> findByQuery(String name, int age);
+    List<Emp> findByQuery1(String name, int age);
+
+    List<Emp> findByQuery2(@Param("name") String name,@Param("age") int age);
+
+    List<Emp> findByEmp(Emp emp);   //#{name} #{age}
+
+    List<Emp> findByMap(Map map);//map.put(name,田)  #{name}
 }
