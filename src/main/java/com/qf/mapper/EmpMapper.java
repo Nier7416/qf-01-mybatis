@@ -30,4 +30,6 @@ public interface EmpMapper {
     List<Emp> findByEmp(Emp emp);   //#{name} #{age}
 
     List<Emp> findByMap(Map map);//map.put(name,田)  #{name}
+
+    List<Emp> findDynSql(@Param("name") String name,@Param("age") Integer age, @Param("salary") Integer salary);
 }

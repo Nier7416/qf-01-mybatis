@@ -7,6 +7,10 @@
 <!--    </select>-->
 <!--</mapper>-->
 <mapper namespace="com.qf.mapper.EmpMapper">
+<!--    sql片段-->
+    <sql id="selector">
+        select * from emp
+    </sql>
 <!--查询的sql语句    -->
     <select id="findAll" parameterType="java.lang.String" resultType="com.qf.pojo.Emp">
         select * from emp where name = #{name}
@@ -44,4 +48,26 @@
     <select id="findByQuery2" resultType="Emp">
         select * from emp where name like '%${name}%' and age = #{age}
     </select>
+
+    
+    
+    
+    
+<!--List<Emp> findDynSql(@Param("name") String name,@Param("age") int age, @Param("salary") int salary);-->
+    <select id="findDynSql" resultType="Emp" >
+        <include refid="selector"></include>
+--         where 1=1
+            <where>
+            <if test="name!=null and name !=''">
+                and name like '%${name}%'
+            </if>
+            <if test="age!=null">
+                and age > #{age}
+            </if>
+            <if test="salary!=null">
+                and salary > #{salary}
+            </if>
+            </where>
+    </select>
+    
 </mapper>
