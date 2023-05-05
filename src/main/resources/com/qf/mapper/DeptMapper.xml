@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="emp">-->
+<!--    <select id="findAll" resultType="com.qf.pojo.Emp">-->
+<!--        select * from emp;-->
+<!--    </select>-->
+<!--</mapper>-->
+<mapper namespace="com.qf.mapper.DeptMapper">
+<!--    List<Dept> findDept();-->
+    <resultMap id="findDeptMap" type="Dept" >
+<!--        <id column="id" property="id"/>-->
+        <result column="dname" property="name"/>
+        <collection property="empList" ofType="Emp" >
+            <id column="emp_id" property="id"/>
+        </collection>
+    </resultMap>
+    <select id="findDept" resultMap="findDeptMap">
+        SELECT
+        dept.id,
+        dept.name dname,
+        emp.*
+        from dept
+                 INNER JOIN emp
+                            on dept.id=emp.d_id
+
+    </select>
+</mapper>

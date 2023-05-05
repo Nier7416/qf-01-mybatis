@@ -33,11 +33,15 @@
 
 <!--    MybatisQuery查询-->
 <!--    findByQuery-->
-    <select id="findByQuery1" resultType="com.qf.pojo.Emp">
+    <resultMap id="findByQuery1Map" type="Emp">
+        <id column="emp_id" property="id"></id>
+<!--        <result column="d_id" property="dId"></result>-->
+    </resultMap>
+    <select id="findByQuery1" resultMap="findByQuery1Map">
         select * from emp where name like '%${arg0}%' and age = #{arg1}
     </select>
 
-    <select id="findByQuery2" resultType="com.qf.pojo.Emp">
+    <select id="findByQuery2" resultType="Emp">
         select * from emp where name like '%${name}%' and age = #{age}
     </select>
 </mapper>

@@ -1,10 +1,19 @@
 package com.qf.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.List;
 
 /**
  * @author lixu
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Dept {
 
     private Integer id;

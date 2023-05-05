@@ -1,11 +1,20 @@
 package com.qf.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.List;
 
 /**
  * 旅客
  * @author lixu
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Passenger {
 
 

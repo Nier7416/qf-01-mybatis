@@ -3,7 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
     <properties resource="jdbc.properties"/>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="autoMappingBehavior" value="FULL"/>
+    </settings>
+    <typeAliases>
+<!--        <typeAlias type="com.qf.pojo.Emp" alias="Emp"/>-->
+        <package name="com.qf.pojo"/>
+        <package name="com.qf.vo"/>
+        <package name="com.qf.dto"/>
+    </typeAliases>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -17,6 +29,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/qf/mapper/EmpMapper.xml"/>
+<!--        <mapper resource="com/qf/mapper/EmpMapper.xml"/>-->
+<!--        <mapper resource="com/qf/mapper/PassengerMapper.xml"/>-->
+<!--        <mapper resource="com/qf/mapper/DeptMapper.xml"/>-->
+        <package name="com.qf.mapper"/>
     </mappers>
 </configuration>

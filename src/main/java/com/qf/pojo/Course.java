@@ -1,9 +1,18 @@
 package com.qf.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 /**
  * 课程
  * @author lixu
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Course {
 
     private Integer id;

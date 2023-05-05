@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 /**
  * 学生
  * @author lixu
@@ -18,6 +20,15 @@ public class Student {
     private Integer id;
     private String name;
     private String sex;
+    private List<Course> course;
+
+    public List<Course> getCourses() {
+        return course;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.course = courses;
+    }
 
     public Integer getId() {
         return id;

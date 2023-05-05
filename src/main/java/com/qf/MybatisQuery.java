@@ -2,6 +2,7 @@ package com.qf;
 
 import com.qf.mapper.EmpMapper;
 import com.qf.pojo.Emp;
+import com.qf.utils.MyBatisUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -43,5 +44,17 @@ public class MybatisQuery {
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
         List<Emp> empList=mapper.findByQuery2("田",18);
         empList.stream().forEach(System.out::println);
+    }
+
+    @Test
+    public void findQuery3(){
+        try {
+            EmpMapper mapper = MyBatisUtils.getMapper(EmpMapper.class);
+            List<Emp> empList=mapper.findByQuery1("田",18);
+            empList.stream().forEach(System.out::println);
+            MyBatisUtils.commit();
+        } catch (Exception e) {
+            MyBatisUtils.rollback();
+        }
     }
 }

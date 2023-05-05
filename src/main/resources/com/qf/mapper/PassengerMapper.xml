@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.PassengerMapper">
+<!--    //查询所有旅客信息，包含护照-->
+<!--    public List<Passenger> findPassenger();-->
+    <resultMap id="findPassengerMap" type="Passenger">
+        <id column="p_id" property="id"></id>
+        <result column="p_name" property="name"/>
+        <result column="p_age" property="age"/>
+<!--        一对一映射  association-->
+        <association property="passport" javaType="Passport">
+<!--            <id column="id" property="id"></id>-->
+        </association>
+    </resultMap>
+    <select id="findPassenger" resultMap="findPassengerMap">
+        select
+            pr.*,
+            pp.id,
+            pp.nationality,
+            pp.expire
+        from passenger pr
+                 inner join passport pp
+                            on pr.p_id=pp.p_id
+
+    </select>
+</mapper>
