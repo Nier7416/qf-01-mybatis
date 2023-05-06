@@ -34,6 +34,8 @@ public class MybatisDynSql {
      */
     @Test
     public void dynSQLBatchInsert(){
+        long startTime = System.currentTimeMillis();
 //        MyBatisUtils.getMapper()
+
     }
 }
