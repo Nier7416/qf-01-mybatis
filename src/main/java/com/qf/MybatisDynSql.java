@@ -34,6 +34,6 @@ public class MybatisDynSql {
      */
     @Test
     public void dynSQLBatchInsert(){
-
+//        MyBatisUtils.getMapper()
     }
 }
